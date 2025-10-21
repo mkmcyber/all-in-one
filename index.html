@@ -23,6 +23,28 @@ body{background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#fff; overf
 .dot:nth-child(2){animation-delay:0.2s;}
 .dot:nth-child(3){animation-delay:0.4s;}
 @keyframes bounce{0%{transform:translateY(0);}100%{transform:translateY(-20px);}}
+  
+/* Modal Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 24px;           /* bigger and visible */
+  font-weight: bold;
+  color: #6a11cb;            /* MKM brand color */
+  background: rgba(255,255,255,0.2); /* subtle background */
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 50%;
+  transition: background 0.3s, color 0.3s;
+}
+.close:hover {
+  background: #6a11cb;
+  color: white;
+}
 
 /* Header / Nav */
 header{display:flex;align-items:center;justify-content:space-between;padding:18px; position:fixed; top:0; left:0; width:100%; z-index:1000;}
@@ -326,6 +348,7 @@ faqQuestions.forEach(q=>{
 </script>
 </body>
 </html>
+
 
 
 
