@@ -41,10 +41,7 @@ body{background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#fff; overf
   border-radius: 50%;
   transition: background 0.3s, color 0.3s;
 }
-.close:hover {
-  background: #6a11cb;
-  color: white;
-}
+.close:hover { background: #6a11cb; color: white; }
 
 /* Header / Nav */
 header{display:flex;align-items:center;justify-content:space-between;padding:18px; position:fixed; top:0; left:0; width:100%; z-index:1000;}
@@ -88,9 +85,10 @@ p{margin-bottom:15px;}
 .modal-bg { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;}
 .modal { background:#fff; padding:30px; border-radius:15px; width:90%; max-width:400px; text-align:left; position:relative;}
 .modal h3{color:#000; margin-bottom:20px;}
-.modal .email { background:#6a11cb; color:#fff; margin-right:10px; }
+.close { position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px;}
+.modal button { margin-top:10px; padding:10px 15px; border:none; border-radius:8px; cursor:pointer; font-weight:bold;}
+.modal .email { background:#6a11cb; color:#fff; margin-right:10px;}
 .modal .whatsapp { background:#25d366; color:#fff; }
-.modal button { margin-top:10px; padding:10px 15px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
 
 /* Floating Buttons */
 .call-btn, .whatsapp-btn { position:fixed; bottom:80px; right:20px; background:#6a11cb; color:#fff; padding:15px; border-radius:50%; font-size:18px; cursor:pointer; box-shadow:0 0 10px rgba(0,0,0,0.5); text-decoration:none; z-index:999; }
@@ -116,10 +114,9 @@ p{margin-bottom:15px;}
 .faq-answer.open { padding:15px 20px; max-height:200px; }
 
 /* Contact Form */
-#contact form{ max-width:500px; margin:20px auto; display:flex; flex-direction:column; gap:12px; }
-#contact input, #contact textarea{ padding:12px; border-radius:8px; border:none; width:100%; }
-#contact button{ padding:12px; border:none; border-radius:8px; background:#6a11cb; color:white; font-weight:bold; cursor:pointer; }
-
+#contactForm { display:flex; flex-direction:column; max-width:400px; margin:0 auto; gap:10px; }
+#contactForm input, #contactForm textarea { padding:10px; border-radius:8px; border:none; }
+#contactForm button { background:#25d366; color:white; padding:12px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
 </style>
 </head>
 <body>
@@ -159,13 +156,11 @@ p{margin-bottom:15px;}
 <section class="hero">
   <h1>RELIABLE, FAST, and SECURE — MKM Online Cyber</h1>
   <p class="lead">We provide printing, application support and affordable WiFi packages with friendly local support. Sign up online or chat with us on WhatsApp.</p>
-
   <div class="cta">
     <button class="btn btn-primary" onclick="document.querySelector('#packages').scrollIntoView({behavior:'smooth'});">View WiFi Plans</button>
     <a href="mailto:mkmonlinecyber@gmail.com" class="btn btn-ghost">Email Us</a>
     <button class="btn btn-whatsapp" onclick="window.open('https://wa.me/254791398996','_blank')">Quick Technical Support</button>
   </div>
-
   <div class="badges">
     <div class="badge">Local tech help</div>
     <div class="badge">Quick setup</div>
@@ -257,21 +252,16 @@ p{margin-bottom:15px;}
   </div>
 </section>
 
-<!-- Contact Form -->
+<!-- Contact -->
 <section id="contact">
   <h2>Contact Us</h2>
   <form id="contactForm">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
     <textarea name="query" placeholder="Your Query" required></textarea>
-    <button type="submit">Submit</button>
+    <button type="submit">Send via WhatsApp</button>
   </form>
 </section>
-
-<!-- Footer -->
-<footer style="text-align:center; padding:20px; background:rgba(0,0,0,0.1); margin-top:40px; color:white;">
-  &copy; 2025 MKM ONLINE CYBER. All rights reserved.
-</footer>
 
 <!-- Modal -->
 <div class="modal-bg" id="modalBg">
@@ -282,6 +272,11 @@ p{margin-bottom:15px;}
     <button class="whatsapp" onclick="sendWhatsApp()">Send via WhatsApp</button>
   </div>
 </div>
+
+<!-- Footer -->
+<footer style="text-align:center; padding:20px; background:rgba(0,0,0,0.1); margin-top:40px; color:white;">
+  &copy; 2025 MKM ONLINE CYBER. All rights reserved.
+</footer>
 
 <!-- Floating Buttons -->
 <a href="tel:0791398996" class="call-btn">📞</a>
@@ -302,7 +297,7 @@ window.addEventListener("load", function(){
   },2000);
 });
 
-// Modal for Wi-Fi Packages
+// Modal Functions
 function openModal(el){ 
   document.getElementById("modalBg").style.display = "flex"; 
   document.getElementById("modalTitle").innerText = "You selected: " + el.parentElement.dataset.plan; 
@@ -341,23 +336,18 @@ faqQuestions.forEach(q=>{
   });
 });
 
-// Contact Form Submission
+// Contact Form WhatsApp Submission
 document.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
-  const name = this.name.value;
-  const email = this.email.value;
-  const query = this.query.value;
-  const message = `Name: ${name}\nEmail: ${email}\nQuery: ${query}`;
-
-  // Send via Email
-  window.location.href = "mailto:mkmonlinecyber@gmail.com?subject=Website Inquiry&body=" + encodeURIComponent(message);
-
-  // Send via WhatsApp (uncomment if you want this instead)
-  // window.open("https://wa.me/254791398996?text=" + encodeURIComponent(message), "_blank");
-
-  this.reset();
+  const name = this.name.value.trim();
+  const email = this.email.value.trim();
+  const query = this.query.value.trim();
+  if(name && email && query){
+    const message = `Hello MKM ONLINE CYBER,%0AName: ${name}%0AEmail: ${email}%0AQuery: ${query}`;
+    window.open("https://wa.me/254791398996?text="+encodeURIComponent(message), "_blank");
+    this.reset();
+  }
 });
 </script>
 </body>
 </html>
-
