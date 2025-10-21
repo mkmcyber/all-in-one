@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MKM ONLINE CYBER</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<style>
+:root{
+  --bg1:#7F00FF;
+  --bg2:#00C2FF;
+  --accentA:#FF6B6B;
+  --muted:#f0f4ff;
+}
+*{margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+html,body{scroll-behavior:smooth;}
+body{background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#fff; overflow-x:hidden;}
+
+/* Loader */
+#loader { position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; display:flex; justify-content:center; align-items:center; flex-direction:column; z-index:9999; }
+.dot { width:15px; height:15px; margin:0 5px; border-radius:50%; display:inline-block; background:linear-gradient(45deg,#6a11cb,#2575fc); animation: bounce 0.6s infinite alternate;}
+.dot:nth-child(2){animation-delay:0.2s;}
+.dot:nth-child(3){animation-delay:0.4s;}
+@keyframes bounce{0%{transform:translateY(0);}100%{transform:translateY(-20px);}}
+
+/* Header / Nav */
+header{display:flex;align-items:center;justify-content:space-between;padding:18px; position:fixed; top:0; left:0; width:100%; z-index:1000;}
+.brand{display:flex;align-items:center;gap:12px;}
+.logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accentA),#8E2DE2);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px;}
+.brand-text{display:flex;flex-direction:column;}
+.brand-text div:first-child{font-weight:800;}
+.brand-text div:last-child{font-size:13px;opacity:0.9;}
+nav a{color:white;text-decoration:none;font-weight:600;margin-left:12px;}
+
+/* Hero Section */
+.hero{padding:120px 20px 40px 20px;text-align:left;}
+.hero h1{font-size:28px;margin-bottom:10px;}
+.hero .lead{opacity:0.9;margin-bottom:15px;}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px;}
+.btn{padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer;text-decoration:none;border:none;}
+.btn-primary{background:linear-gradient(90deg,#FF6B6B,#FF8A65);color:white;}
+.btn-ghost{border:2px solid rgba(255,255,255,0.15);background:transparent;color:white;}
+.btn-whatsapp{background:#25d366;color:white;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{background:rgba(255,255,255,0.12);padding:8px 12px;border-radius:999px;font-weight:600;}
+
+/* Sections */
+section{padding:60px 20px; text-align:center;}
+h2,h3{margin-bottom:20px;}
+p{margin-bottom:15px;}
+
+/* Services */
+.services { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:40px; }
+.service-card { background:rgba(255,255,255,0.1); padding:30px; border-radius:15px; width:250px; cursor:pointer; transition: transform 0.3s, box-shadow 0.3s; box-shadow:0 0 15px rgba(0,0,0,0.3);}
+.service-card:hover { transform: scale(1.05); box-shadow:0 0 25px rgba(0,0,0,0.5); }
+.service-card button { margin-top:15px; padding:10px 15px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; background:#2575fc; color:#fff; }
+
+/* Wi-Fi Packages */
+.packages { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:40px; }
+.package { background:rgba(255,255,255,0.1); padding:30px; border-radius:15px; width:250px; cursor:pointer; transition: transform 0.3s; box-shadow:0 0 15px rgba(0,0,0,0.3);}
+.package:hover { transform: scale(1.05); }
+.package button { margin-top:15px; padding:10px 15px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; background:#6a11cb; color:#fff; }
+
+/* Modal */
+.modal-bg { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;}
+.modal { background:#fff; padding:30px; border-radius:15px; width:90%; max-width:400px; text-align:left; position:relative;}
+.modal h3{color:#000; margin-bottom:20px;}
+.close { position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px;}
+.modal button { margin-top:10px; padding:10px 15px; border:none; border-radius:8px; cursor:pointer; font-weight:bold;}
+.modal .email { background:#6a11cb; color:#fff; margin-right:10px;}
+.modal .whatsapp { background:#25d366; color:#fff; }
+
+/* Floating Buttons */
+.call-btn, .whatsapp-btn { position:fixed; bottom:80px; right:20px; background:#6a11cb; color:#fff; padding:15px; border-radius:50%; font-size:18px; cursor:pointer; box-shadow:0 0 10px rgba(0,0,0,0.5); text-decoration:none; z-index:999; }
+.whatsapp-btn { bottom:150px; background:#25d366; }
+
+/* Back to Top */
+#backTop { position:fixed; bottom:20px; right:20px; display:none; background:#2575fc; color:#fff; border:none; padding:12px 16px; border-radius:50%; cursor:pointer; font-size:18px; z-index:998; }
+
+/* Testimonials Carousel */
+.testimonials { position:relative; width:100%; max-width:600px; margin:40px auto; overflow:hidden; border-radius:15px; background:rgba(255,255,255,0.1); padding:40px; }
+.testimonial-slide { display:none; text-align:center; color:#fff; font-style:italic; }
+.testimonial-slide.active { display:block; animation:fadeBounce 1s; }
+.testimonial-slide .stars { color:gold; margin-bottom:10px; }
+@keyframes fadeBounce {0%{opacity:0; transform:translateY(20px);}100%{opacity:1; transform:translateY(0);}}
+
+/* FAQ Accordion */
+.faq { max-width:600px; margin:40px auto; text-align:left; }
+.faq-item { background:rgba(255,255,255,0.1); margin-bottom:10px; border-radius:10px; overflow:hidden; }
+.faq-question { padding:15px 20px; cursor:pointer; font-weight:bold; position:relative; }
+.faq-question::after { content:'▾'; position:absolute; right:20px; transition:transform 0.3s;}
+.faq-question.active::after { transform:rotate(180deg); }
+.faq-answer { max-height:0; overflow:hidden; padding:0 20px; transition:max-height 0.5s ease, padding 0.5s ease; }
+.faq-answer.open { padding:15px 20px; max-height:200px; }
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div style="display:flex;">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <p style="margin-top:15px;color:#6a11cb;font-weight:bold;">Welcome to MKM ONLINE CYBER</p>
+</div>
+
+<div id="mainContent" style="display:none;">
+
+<!-- Header + Navigation -->
+<header>
+  <div class="brand">
+    <div class="logo">MKM</div>
+    <div class="brand-text">
+      <div>MKM ONLINE CYBER</div>
+      <div style="font-size:13px;opacity:0.9">Printing • Online Applications • WiFi Packages • Drop shipping</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#packages">Packages</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Colorful, fast, and local — MKM Online Cyber</h1>
+  <p class="lead">We provide printing, application support and affordable WiFi packages with friendly local support. Sign up online or chat with us on WhatsApp.</p>
+
+  <div class="cta">
+    <button class="btn btn-primary" onclick="document.querySelector('#packages').scrollIntoView({behavior:'smooth'});">View WiFi Plans</button>
+    <a href="mailto:mkmonlinecyber@gmail.com" class="btn btn-ghost">Email Us</a>
+    <button class="btn btn-whatsapp" onclick="window.open('https://wa.me/254791398996','_blank')">Quick Technical Support</button>
+  </div>
+
+  <div class="badges">
+    <div class="badge">Local tech help</div>
+    <div class="badge">Quick setup</div>
+    <div class="badge">Secure payments</div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="service-card" data-service="Printing" data-aos="fade-up">
+      <h3>Printing</h3>
+      <p>High-quality color and black & white printing.</p>
+      <button onclick="openServiceModal(this)">Pick This Service</button>
+    </div>
+    <div class="service-card" data-service="Online Applications" data-aos="fade-up">
+      <h3>Online Applications</h3>
+      <p>School, job, and government applications assistance.</p>
+      <button onclick="openServiceModal(this)">Pick This Service</button>
+    </div>
+    <div class="service-card" data-service="MikroTik Setup" data-aos="fade-up">
+      <h3>MikroTik Setup</h3>
+      <p>Expert router configuration and troubleshooting.</p>
+      <button onclick="openServiceModal(this)">Pick This Service</button>
+    </div>
+    <div class="service-card" data-service="Drop Shipping" data-aos="fade-up">
+      <h3>Drop Shipping</h3>
+      <p>Buy and sell online easily with our platform support.</p>
+      <button onclick="openServiceModal(this)">Pick This Service</button>
+    </div>
+  </div>
+</section>
+
+<!-- Wi-Fi Packages -->
+<section id="packages">
+  <h2>Our Wi-Fi Packages</h2>
+  <div class="packages">
+    <div class="package" data-plan="8 Mbps for Ksh 1200" data-aos="fade-up">
+      <h3>8 Mbps</h3>
+      <p>Ksh 1200/month</p>
+      <button onclick="openModal(this)">Pick This Plan</button>
+    </div>
+    <div class="package" data-plan="18 Mbps for Ksh 2000" data-aos="fade-up">
+      <h3>18 Mbps</h3>
+      <p>Ksh 2000/month</p>
+      <button onclick="openModal(this)">Pick This Plan</button>
+    </div>
+    <div class="package" data-plan="30 Mbps for Ksh 2500" data-aos="fade-up">
+      <h3>30 Mbps</h3>
+      <p>Ksh 2500/month</p>
+      <button onclick="openModal(this)">Pick This Plan</button>
+    </div>
+    <div class="package" data-plan="60 Mbps for Ksh 3500" data-aos="fade-up">
+      <h3>60 Mbps</h3>
+      <p>Ksh 3500/month</p>
+      <button onclick="openModal(this)">Pick This Plan</button>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section>
+  <h2>Testimonials</h2>
+  <div class="testimonials">
+    <div class="testimonial-slide active"><div class="stars">★★★★★</div>“Best Wi-Fi and service ever!” - Alice</div>
+    <div class="testimonial-slide"><div class="stars">★★★★☆</div>“Fast internet and helpful staff.” - Brian</div>
+    <div class="testimonial-slide"><div class="stars">★★★★★</div>“Printing and applications made easy.” - Clara</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2>FAQ</h2>
+  <div class="faq" data-aos="fade-up">
+    <div class="faq-item">
+      <div class="faq-question">How do I subscribe?</div>
+      <div class="faq-answer"><p>Click "Pick This Plan" above to choose your Wi-Fi package or pick a service to submit via WhatsApp or Email.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Can I pay via MPESA?</div>
+      <div class="faq-answer"><p>Yes, MPESA and other payment options are available.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: mkmonlinecyber@gmail.com</p>
+  <p>Phone: 0791398996</p>
+</section>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <button class="email" onclick="sendEmail()">Send via Email</button>
+    <button class="whatsapp" onclick="sendWhatsApp()">Send via WhatsApp</button>
+  </div>
+</div>
+
+<!-- Floating Buttons -->
+<a href="tel:0791398996" class="call-btn">📞</a>
+<a href="https://wa.me/254791398996" target="_blank" class="whatsapp-btn">💬</a>
+
+<!-- Back to Top -->
+<button id="backTop" onclick="topFunction()">⬆️</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({ once:false, duration:800 });
+
+// Loader
+window.addEventListener("load", function(){
+  setTimeout(function(){
+    document.getElementById("loader").style.display="none";
+    document.getElementById("mainContent").style.display="block";
+  },2000);
+});
+
+// Modal for Wi-Fi Packages
+function openModal(el){ 
+  document.getElementById("modalBg").style.display = "flex"; 
+  document.getElementById("modalTitle").innerText = "You selected: " + el.parentElement.dataset.plan; 
+}
+
+// Modal for Services
+function openServiceModal(el){
+  const service = el.parentElement.dataset.service;
+  document.getElementById("modalBg").style.display = "flex";
+  document.getElementById("modalTitle").innerText = "You selected: " + service;
+}
+
+function closeModal(){ document.getElementById("modalBg").style.display="none"; }
+function sendEmail(){ let plan = document.getElementById("modalTitle").innerText; window.location.href = "mailto:mkmonlinecyber@gmail.com?subject=Inquiry&body="+encodeURIComponent(plan);}
+function sendWhatsApp(){ let plan = document.getElementById("modalTitle").innerText; window.open("https://wa.me/254791398996?text="+encodeURIComponent(plan));}
+
+// Back to Top
+window.onscroll = function(){scrollFunction()};
+function scrollFunction(){ let btn=document.getElementById("backTop"); if(document.body.scrollTop>100||document.documentElement.scrollTop>100){btn.style.display="block";}else{btn.style.display="none";} }
+function topFunction(){document.body.scrollTop=0;document.documentElement.scrollTop=0;}
+
+// Testimonial Carousel Loop
+let testimonialIndex = 0;
+function showTestimonials(){ 
+  const slides = document.querySelectorAll(".testimonial-slide");
+  slides.forEach(s=>s.classList.remove("active"));
+  testimonialIndex = (testimonialIndex+1)%slides.length;
+  slides[testimonialIndex].classList.add("active");
+}
+setInterval(showTestimonials,4000);
+
+// FAQ Accordion
+const faqQuestions = document.querySelectorAll(".faq-question");
+faqQuestions.forEach(q=>{
+  q.addEventListener("click", ()=>{
+    q.classList.toggle("active");
+    const a = q.nextElementSibling;
+    a.classList.toggle("open");
+  });
+});
+</script>
+</body>
+</html>
