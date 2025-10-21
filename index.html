@@ -261,18 +261,6 @@ p{margin-bottom:15px;}
 </section>
 </div>
   
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const name = this.name.value;
-  const email = this.email.value;
-  const query = this.query.value;
-  const body = `Name: ${name}%0AEmail: ${email}%0AQuery: ${query}`;
-  window.location.href = `mailto:mkmonlinecyber@gmail.com?subject=Website Inquiry&body=${body}`;
-});
-</script>
-
-  
 <!-- Modal -->
 <div class="modal-bg" id="modalBg">
   <div class="modal">
@@ -352,6 +340,7 @@ faqQuestions.forEach(q=>{
 </script>
 </body>
 </html>
+
 
 
 
