@@ -279,7 +279,7 @@ p{margin-bottom:15px;}
 
 <!-- Footer -->
 <footer style="text-align:center; padding:20px; background:rgba(0,0,0,0.1); margin-top:40px; color:white;">
-  &copy; 2025 MKM ONLINE CYBER. All rights reserved.
+  &copy; 2026 MKM TECH HUB. All rights reserved.
 </footer>
 
 <!-- Floating Buttons -->
@@ -346,8 +346,9 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
   const name = this.name.value.trim();
   const email = this.email.value.trim();
   const query = this.query.value.trim();
-  if(name && email && query){
-    const message = `Hello MKM ONLINE CYBER,%0AName: ${name}%0AEmail: ${email}%0AQuery: ${query}`;
+  const feedback = this.feedback.value.trim();
+  if(name && email && query && feedback){
+    const message = `Hello MKM TECH HUB,%0AName: ${name}%0AEmail: ${email}%0AQuery: ${query}%0AFeedback: ${feedback}`;
     window.open("https://wa.me/254791398996?text="+encodeURIComponent(message), "_blank");
     this.reset();
   }
