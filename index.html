@@ -16,9 +16,17 @@
   --cardBg:rgba(255,255,255,0.08);
   --muted:#EAF4FF;
 }
-*{margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
-html,body{scroll-behavior:smooth;}
-body{background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#fff; overflow-x:hidden;}
+
+body{
+  background:linear-gradient(
+      135deg,
+      var(--bg1) 0%,
+      var(--bg2) 50%,
+      var(--bg3) 100%
+  );
+  color:#fff;
+  overflow-x:hidden;
+}
 
 /* Loader */
 #loader { position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; display:flex; justify-content:center; align-items:center; flex-direction:column; z-index:9999; }
