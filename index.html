@@ -51,6 +51,32 @@ footer{padding:40px;text-align:center;background:rgba(0,0,0,.25)}
 .marquee{
 white-space:nowrap;overflow:hidden;padding:15px;background:rgba(255,255,255,.08)
 }
+button,
+.btn{
+    background:linear-gradient(
+        135deg,
+        #00c2ff,
+        #1a73e8
+    );
+
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-weight:700;
+
+    transition:0.3s;
+}
+
+button:hover,
+.btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 15px #00c2ff,
+        0 0 30px #1a73e8;
+}
+
+  
 .services{
     display:flex;
     flex-wrap:wrap;
