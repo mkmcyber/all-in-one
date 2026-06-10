@@ -64,6 +64,24 @@ header{display:flex;align-items:center;justify-content:space-between;padding:18p
 nav a{color:white;text-decoration:none;font-weight:600;margin-left:12px;}
 
 /* Hero Section */
+  .hero{
+  position:relative;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:radial-gradient(
+      circle,
+      rgba(0,194,255,0.25),
+      transparent 70%
+  );
+  top:-150px;
+  right:-150px;
+  z-index:-1;
+}
 .hero{padding:120px 20px 40px 20px;text-align:left;}
 .hero h1{font-size:28px;margin-bottom:10px;}
 .hero .lead{opacity:0.9;margin-bottom:15px;}
@@ -83,13 +101,19 @@ p{margin-bottom:15px;}
 /* Services */
 .services { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:40px; }
 .service-card{
-  background:rgba(255,255,255,0.1);
-} 
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.1);
+}
 .service-card button { margin-top:15px; padding:10px 15px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; background:#2575fc; color:#fff; }
 
 /* Wi-Fi Packages */
 .packages { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:40px; }
-.package { background:rgba(255,255,255,0.1); padding:30px; border-radius:15px; width:250px; cursor:pointer; transition: transform 0.3s; box-shadow:0 0 15px rgba(0,0,0,0.3); }
+.package{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.1);
+}
 .package:hover { transform: scale(1.05); }
 .package button { margin-top:15px; padding:10px 15px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; background:#6a11cb; color:#fff; }
 
@@ -161,6 +185,11 @@ p{margin-bottom:15px;}
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </nav>
+  header{
+  background:rgba(8,28,58,0.85);
+  backdrop-filter:blur(12px);
+  box-shadow:0 2px 20px rgba(0,0,0,0.2);
+}
 </header>
 
 <!-- Hero -->
@@ -177,6 +206,10 @@ p{margin-bottom:15px;}
     <div class="badge">Quick setup</div>
     <div class="badge">Real time management</div>
   </div>
+  badge{
+  background:rgba(0,194,255,0.15);
+  border:1px solid rgba(0,194,255,0.3);
+}
 </section>
 
 <!-- Services -->
