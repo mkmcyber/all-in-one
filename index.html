@@ -51,12 +51,53 @@ footer{padding:40px;text-align:center;background:rgba(0,0,0,.25)}
 .marquee{
 white-space:nowrap;overflow:hidden;padding:15px;background:rgba(255,255,255,.08)
 }
-.package h2,
-.package h3{
-    color:#ffffff;
-    text-shadow:
-        0 0 10px #ffd700,
-        0 0 20px #ffd700;
+.blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(100px);
+    z-index:-1;
+}
+
+.blob1{
+    width:300px;
+    height:300px;
+    background:#00c2ff;
+    top:10%;
+    left:10%;
+    animation:move1 15s infinite alternate;
+}
+
+.blob2{
+    width:250px;
+    height:250px;
+    background:#6b46c1;
+    top:60%;
+    right:10%;
+    animation:move2 18s infinite alternate;
+}
+
+.blob3{
+    width:280px;
+    height:280px;
+    background:#00e5a8;
+    bottom:10%;
+    left:40%;
+    animation:move3 20s infinite alternate;
+}
+
+@keyframes move1{
+    from{transform:translate(0,0);}
+    to{transform:translate(150px,100px);}
+}
+
+@keyframes move2{
+    from{transform:translate(0,0);}
+    to{transform:translate(-150px,-120px);}
+}
+
+@keyframes move3{
+    from{transform:translate(0,0);}
+    to{transform:translate(120px,-100px);}
 }
 .marquee span{
 display:inline-block;padding-left:100%;
@@ -151,6 +192,8 @@ nav{display:none}
 <p>Empowering your Digital Journey</p>
 <p>&copy; 2026 MKM TECH HUB. All Rights Reserved.</p>
 </footer>
-
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
 </body>
 </html>
