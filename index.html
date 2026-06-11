@@ -7,7 +7,10 @@
 <title>MKM TECH HUB - Premium ISP</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-  body{background(135deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);color:#fff;overflow-x;}
+  body{
+    color:#fff;
+    overflow-x:hidden;
+}
   
 /* Loader */#loader { position; top:0; left:0; width:100%; height:100%; background:#fff; display; justify-content; align-items; flex-direction; z-index:9999; }.dot { width:15px; height:15px; margin:0 5px; border-radius:50%; display; background(45deg,#6a11cb,#2575fc); animation: bounce 0.6s infinite alternate;}.dot(2){animation-delay:0.2s;}.dot(3){animation-delay:0.4s;}@keyframes bounce{0%{transform(0);}100%{transform(-20px);}}
 body{
@@ -212,6 +215,105 @@ animation:scroll 18s linear infinite
 0%{transform:translateX(0)}
 100%{transform:translateX(-100%)}
 }
+.card{
+    width:320px;
+    min-height:240px;
+    padding:30px;
+    border-radius:25px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25),
+        0 0 20px rgba(0,194,255,.25);
+
+    transition:.4s ease;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        rgba(0,194,255,.12),
+        rgba(26,115,232,.08),
+        rgba(106,17,203,.12)
+    );
+}
+
+.card>*{
+    position:relative;
+    z-index:2;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.03);
+
+    box-shadow:
+        0 0 25px #00c2ff,
+        0 0 50px #1a73e8,
+        0 0 80px #6a11cb;
+}
+
+/* Packages */
+
+#packages .card{
+    background:linear-gradient(
+        135deg,
+        rgba(0,194,255,.20),
+        rgba(26,115,232,.20)
+    );
+}
+
+#packages .card h2{
+    font-size:34px;
+    color:white;
+
+    text-shadow:
+        0 0 10px #00c2ff,
+        0 0 20px #00c2ff,
+        0 0 30px #00c2ff;
+}
+
+/* Reviews */
+
+section:nth-of-type(5) .card{
+    background:linear-gradient(
+        135deg,
+        rgba(0,229,168,.15),
+        rgba(0,194,255,.15)
+    );
+}
+
+/* Popular Package */
+
+.popular::after{
+    content:"MOST POPULAR";
+    position:absolute;
+    top:18px;
+    right:-45px;
+
+    background:#00c2ff;
+    color:white;
+
+    padding:8px 50px;
+
+    transform:rotate(45deg);
+
+    font-size:11px;
+    font-weight:700;
+}
+
+  
 @media(max-width:768px){
 .hero h1{font-size:2.3rem}
 nav{display:none}
@@ -268,10 +370,31 @@ nav{display:none}
 <section id="packages">
 <h2 align="center">Internet Packages</h2><br>
 <div class="grid">
-<div class="card"><h3>10 Mbps</h3><h2>KSh 1300</h2></div>
-<div class="card"><h3>18 Mbps</h3><h2>KSh 2000</h2></div>
-<div class="card"><h3>30 Mbps</h3><h2>KSh 2500</h2></div>
-<div class="card"><h3>60 Mbps</h3><h2>KSh 3500</h2></div>
+  
+<div class="card popular">
+<h3>10 Mbps</h3>
+<h2>KSh 1300</h2>
+<p>Best for Browsing</p>
+</div>
+  
+<div class="card popular">
+<h3>18 Mbps</h3>
+<h2>KSh 2000</h2>
+<p>Best for Browsing & Streaming</p>
+</div>
+  
+<div class="card popular">
+<h3>30 Mbps</h3>
+<h2>KSh 2500</h2>
+<p>Best for Streaming</p>
+</div>
+  
+<div class="card popular">
+<h3>60 Mbps</h3>
+<h2>KSh 3500</h2>
+<p>Best for Gaming & Streaming</p>
+</div>
+  
 </div>
 </section>
 
