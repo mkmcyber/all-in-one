@@ -267,12 +267,46 @@ animation:scroll 18s linear infinite
 /* Packages */
 
 #packages .card{
+    position:relative;
+    overflow:hidden;
+
     background:linear-gradient(
         135deg,
         rgba(0,194,255,.20),
         rgba(26,115,232,.20)
     );
+
+    border-radius:25px;
 }
+ #packages .card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    border-radius:25px;
+    padding:2px;
+
+    background:linear-gradient(
+        90deg,
+        #00c2ff,
+        #1a73e8,
+        #6a11cb,
+        #00c2ff
+    );
+
+    background-size:300% 300%;
+
+    animation:borderGlow 4s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+
+    pointer-events:none;
+} 
 
 #packages .card h2{
     font-size:34px;
@@ -311,8 +345,24 @@ section:nth-of-type(5) .card{
 
     font-size:11px;
     font-weight:700;
-}
+  .popular{
+    border:2px solid #ffd700;
 
+    box-shadow:
+        0 0 15px #ffd700,
+        0 0 30px #ffd700,
+        0 0 60px rgba(255,215,0,.5);
+}
+}
+@keyframes borderGlow{
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:300% 50%;
+    }
+}
   
 @media(max-width:768px){
 .hero h1{font-size:2.3rem}
