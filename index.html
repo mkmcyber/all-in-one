@@ -428,6 +428,77 @@ section:nth-of-type(5) .card{
         background-position:300% 50%;
     }
 }
+#services .card{
+    background:linear-gradient(
+        135deg,
+        rgba(106,17,203,0.25),
+        rgba(37,117,252,0.15)
+    );
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 15px rgba(106,17,203,0.25),
+        0 0 30px rgba(37,117,252,0.15);
+
+    position:relative;
+    overflow:hidden;
+}
+
+/* Animated light streak */
+
+#services .card::before{
+    content:'';
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+
+    background:linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,0.08),
+        transparent
+    );
+
+    transform:rotate(25deg);
+
+    animation:serviceShine 6s linear infinite;
+}
+
+/* Keep text above animation */
+
+#services .card h3,
+#services .card p{
+    position:relative;
+    z-index:2;
+}
+
+/* Hover effect */
+
+#services .card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+        0 0 20px #6a11cb,
+        0 0 40px #2575fc,
+        0 0 60px rgba(106,17,203,0.4);
+}
+
+/* Animation */
+
+@keyframes serviceShine{
+    0%{
+        transform:translateX(-100%) rotate(25deg);
+    }
+
+    100%{
+        transform:translateX(100%) rotate(25deg);
+    }
+}
+
+
   
 @media(max-width:768px){
 .hero h1{font-size:2.3rem}
