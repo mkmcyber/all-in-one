@@ -508,28 +508,77 @@ section:nth-of-type(5) .card{
     }
 }
 
-/* Reviews Slider */
+/* Review Avatar */
 
-.reviews-container{
-    width:100%;
-    overflow:hidden;
-    position:relative;
-}
+.avatar{
+    width:70px;
+    height:70px;
 
-.reviews-slider{
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
     display:flex;
-    gap:30px;
-    width:max-content;
+    align-items:center;
+    justify-content:center;
 
-    animation:reviewMove 25s linear infinite;
+    font-size:24px;
+    font-weight:800;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #00c2ff,
+        #1a73e8
+    );
+
+    box-shadow:
+        0 0 15px #00c2ff,
+        0 0 30px rgba(0,194,255,.5);
 }
 
-.review-card{
-    min-width:320px;
+/* Gold Stars */
+
+.stars{
+    color:#FFD700;
+
+    letter-spacing:3px;
+
+    text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFD700,
+        0 0 20px rgba(255,215,0,.8);
 }
 
-.reviews-slider:hover{
-    animation-play-state:paused;
+/* Customer Name */
+
+.review-card h4{
+    margin-top:10px;
+    font-size:18px;
+    font-weight:700;
+
+    color:white;
+}
+
+/* Location */
+
+.location{
+    display:block;
+
+    margin-bottom:15px;
+
+    color:#bde8ff;
+
+    font-size:13px;
+}
+
+/* Review Text */
+
+.review-card p{
+    line-height:1.7;
+    color:#eef8ff;
+    font-style:italic;
 }
 
 @keyframes reviewMove{
@@ -638,33 +687,39 @@ nav{display:none}
 <div class="reviews-slider">
 
 <div class="card review-card">
-<h3>★★★★★</h3>
-<p>"Excellent service and stable internet."</p>
+    <div class="avatar">MC</div>
+    <h3 class="stars">★★★★★</h3>
+    <h4>Mary Chebet</h4>
+    <span class="location">Langas, Eldoret</span>
+    <p>"Professional support team and very reliable internet."</p>
 </div>
 
 <div class="card review-card">
-<h3>★★★★★</h3>
-<p>"Quick installation and professional support."</p>
+    <div class="avatar">BK</div>
+    <h3 class="stars">★★★★☆</h3>
+    <h4>Brian Koech</h4>
+    <span class="location">Pioneer, Eldoret</span>
+    <p>"Affordable packages and excellent customer care."</p>
 </div>
 
 <div class="card review-card">
-<h3>★★★★☆</h3>
-<p>"Affordable packages and friendly staff."</p>
+    <div class="avatar">FJ</div>
+    <h3 class="stars">★★★★★</h3>
+    <h4>Faith Jepchirchir</h4>
+    <span class="location">Kapsoya, Eldoret</span>
+    <p>"Fast internet speeds and quick response whenever needed."</p>
 </div>
 
 <div class="card review-card">
-<h3>★★★★★</h3>
-<p>"Very fast WiFi and friendly technicians."</p>
-</div>
-
-<div class="card review-card">
-<h3>★★★★★</h3>
-<p>"Best internet provider I have used."</p>
-</div>
-
+    <div class="avatar">DR</div>
+    <h3 class="stars">★★★★★</h3>
+    <h4>David Rotich</h4>
+    <span class="location">Kimumu, Eldoret</span>
+    <p>"Best internet provider I've used. Highly recommended."</p>
 </div>
 
 </div>
+  <!-- Repeat the same three again -->
 </section>
 
 <section id="contact">
