@@ -119,21 +119,49 @@ button:hover,
     inset:0;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(0,194,255,.18),
-            rgba(26,115,232,.08),
-            rgba(106,17,203,.18)
-        );
+    linear-gradient(
+        135deg,
+        rgba(0,194,255,.30),
+        rgba(26,115,232,.15),
+        rgba(106,17,203,.30)
+    );
 
     border-radius:25px;
 
     box-shadow:
-        inset 0 0 20px rgba(0,194,255,.20),
-        inset 0 0 40px rgba(106,17,203,.15);
-
-    z-index:1;
+        inset 0 0 30px rgba(0,194,255,.35),
+        inset 0 0 60px rgba(106,17,203,.25);
 }
+.card::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:60%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    animation:cardShine 5s infinite;
+}
+
+@keyframes cardShine{
+    0%{
+        left:-100%;
+    }
+
+    100%{
+        left:200%;
+    }
+}
+  
 #services .card>*{
     position:relative;
     z-index:2;
