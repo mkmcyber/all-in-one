@@ -397,12 +397,22 @@ animation:scroll 18s linear infinite
 
 #packages .card h2{
     font-size:34px;
-    color:white;
+    font-weight:900;
+
+    background:linear-gradient(
+        180deg,
+        #fff7b2,
+        #ffd700,
+        #ffb700
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
 
     text-shadow:
-        0 0 10px #00c2ff,
-        0 0 20px #00c2ff,
-        0 0 30px #00c2ff;
+        0 0 10px rgba(255,215,0,.7),
+        0 0 20px rgba(255,215,0,.5);
 }
 
 /* Reviews */
