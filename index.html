@@ -508,7 +508,39 @@ section:nth-of-type(5) .card{
     }
 }
 
+/* Reviews Slider */
 
+.reviews-container{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+}
+
+.reviews-slider{
+    display:flex;
+    gap:30px;
+    width:max-content;
+
+    animation:reviewMove 25s linear infinite;
+}
+
+.review-card{
+    min-width:320px;
+}
+
+.reviews-slider:hover{
+    animation-play-state:paused;
+}
+
+@keyframes reviewMove{
+    0%{
+        transform:translateX(100%);
+    }
+
+    100%{
+        transform:translateX(-100%);
+    }
+}
   
 @media(max-width:768px){
 .hero h1{font-size:2.3rem}
