@@ -508,80 +508,32 @@ section:nth-of-type(5) .card{
     }
 }
 
-/* Review Avatar */
+/* Reviews Carousel */
 
-.avatar{
-    width:70px;
-    height:70px;
+.reviews-container{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    padding:20px 0;
+}
 
-    margin:0 auto 15px;
-
-    border-radius:50%;
-
+.reviews-slider{
     display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:24px;
-    font-weight:800;
-
-    color:white;
-
-    background:linear-gradient(
-        135deg,
-        #00c2ff,
-        #1a73e8
-    );
-
-    box-shadow:
-        0 0 15px #00c2ff,
-        0 0 30px rgba(0,194,255,.5);
+    gap:30px;
+    width:max-content;
+    animation:slideReviews 25s linear infinite;
 }
 
-/* Gold Stars */
-
-.stars{
-    color:#FFD700;
-
-    letter-spacing:3px;
-
-    text-shadow:
-        0 0 5px #FFD700,
-        0 0 10px #FFD700,
-        0 0 20px rgba(255,215,0,.8);
+.review-card{
+    min-width:320px;
+    flex-shrink:0;
 }
 
-/* Customer Name */
-
-.review-card h4{
-    margin-top:10px;
-    font-size:18px;
-    font-weight:700;
-
-    color:white;
+.reviews-slider:hover{
+    animation-play-state:paused;
 }
 
-/* Location */
-
-.location{
-    display:block;
-
-    margin-bottom:15px;
-
-    color:#bde8ff;
-
-    font-size:13px;
-}
-
-/* Review Text */
-
-.review-card p{
-    line-height:1.7;
-    color:#eef8ff;
-    font-style:italic;
-}
-
-@keyframes reviewMove{
+@keyframes slideReviews{
     0%{
         transform:translateX(100%);
     }
